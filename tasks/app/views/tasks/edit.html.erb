@@ -1,0 +1,8 @@
+<div class="container">
+
+<%= form_for @task ,html: {class: "form-inline"} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Enviar' %>
+<% end %>
+</div>
