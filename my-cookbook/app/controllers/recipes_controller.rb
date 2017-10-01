@@ -6,19 +6,20 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @cuisines = Cuisine.all
   end
 
   def create
-    recipe = Recipe.new
-    recipe.title = params[:recipe][:title]
-    recipe.recipe_type = params[:recipe][:recipe_type]
-    recipe.cook_time = params[:recipe][:cook_time]
-    recipe.method = params[:recipe][:method]
-    recipe.ingredients = params[:recipe][:ingredients]
-    recipe.cuisine = params[:recipe][:cuisine]
-    recipe.difficulty = params[:recipe][:difficulty]
-
+    recipe = Recipe.new(recipe_params)
     recipe.save
-    redirect_to recipe_path recipe
+    redirect_to recipe_url recipe
+  end
+
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, :recipe_type, :cook_time, :cuisine_id, :ingredients, :method, :difficulty)
+
   end
 end
