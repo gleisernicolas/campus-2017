@@ -1,4 +1,7 @@
+<%= flash[:error] %>
+
 <%= form_for @cuisine do |form| %>
   <%= form.label :name, 'Nome'%>
-  <%= form.text :name %>
+  <%= form.text_field :name %>
+  <%= form.submit 'Enviar' %>
 <% end %>
