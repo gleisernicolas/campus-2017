@@ -1,3 +1,5 @@
+<%= flash[:error] %>
+
 <%= form_for @recipe , html: {class: "form-inline"} do  |f|  %>
   <%= f.label :title, 'Título' %>
   <%= f.text_field :title %>
