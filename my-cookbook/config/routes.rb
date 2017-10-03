@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   resources :home
-  resources :recipes
-  resources :cuisines
+  resources :recipes, only: [:new, :show, :create]
+  resources :cuisines , only: [:new, :show, :create]
 end

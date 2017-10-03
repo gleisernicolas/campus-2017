@@ -1,4 +1,4 @@
-<%= link_to "Voltar", root_path %>
+
 <h1><%= @recipe.title %></h1>
 <h3>Detalhes</h3>
 <p><%= @recipe.recipe_type %></p>
@@ -9,3 +9,4 @@
 <p><%= @recipe.ingredients %></p>
 <h3>Como Preparar</h3>
 <p><%= @recipe.method %></p>
+<%= link_to 'Voltar', root_path, class: 'btn btn-default'%>

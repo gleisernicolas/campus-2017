@@ -1,28 +1,47 @@
 <%= flash[:error] %>
+<div class="row">
+  <div class="col-md=2">
 
-<%= form_for @recipe , html: {class: "form-inline"} do  |f|  %>
-  <%= f.label :title, 'Título' %>
-  <%= f.text_field :title %>
+  </div>
+  <div class="col-md-8">
+    <%= form_for @recipe , html: {class: "form-horizontal"} do  |f|  %>
+    <div class="form-group">
+      <%= f.label :title, 'Título' , class: 'control-label'%>
+      <%= f.text_field :title , class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :recipe_type , 'Tipo da Receita' , class: 'control-label'%>
+      <%= f.text_field :recipe_type  , class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= f.label :cuisine_id , 'Cozinha' , class: 'control-label'%>
+      <%= f.collection_select(:cuisine_id, @cuisines, :id, :name, class: "store-select") %>
+    </div>
+      <div class="form-group">
+      <%= f.label :difficulty, 'Dificuldade', class: 'control-label' %>
+      <%= f.text_field :difficulty  , class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= f.label :cook_time, 'Tempo de Preparo' , class: 'control-label'%>
+      <%= f.number_field :cook_time , class: 'form-control' %>
+      </div>
+    <div class="form-group">
+      <%= f.label :ingredients , 'Ingredientes', class: 'control-label'%>
+      <%= f.text_field :ingredients , class: 'form-control' %>
+      </div>
+    <div class="form-group">
+      <%= f.label :method, 'Como Preparar' , class: 'control-label'%>
+      <%= f.text_field :method , class: 'form-control' %>
+    </div>
 
-  <%= f.label :recipe_type , 'Tipo da Receita'%>
-  <%= f.text_field :recipe_type %>
+    <div class="form-group">
+      <%= f.submit 'Enviar' , class: 'form-control' %>
+    </div>
+    <% end %>
+  </div>
 
-  <%= f.label :cuisine_id , 'Cozinha' %>
-  <%= f.collection_select(:cuisine_id, @cuisines, :id, :name)%>
+  <div class="col-md-2">
 
-  <%= f.label :difficulty, 'Dificuldade' %>
-  <%= f.text_field :difficulty %>
+  </div>
 
-  <%= f.label :cook_time, 'Tempo de Preparo' %>
-  <%= f.number_field :cook_time %>
-
-  <%= f.label :ingredients , 'Ingredientes'%>
-  <%= f.text_field :ingredients %>
-
-  <%= f.label :method, 'Como Preparar' %>
-  <%= f.text_field :method %>
-
-
-
-  <%= f.submit 'Enviar' %>
-<% end %>
+</div>
