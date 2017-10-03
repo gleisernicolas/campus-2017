@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :home
   resources :recipes, only: [:new, :show, :create]
   resources :cuisines , only: [:new, :show, :create]
+  #get '/recipes/use/:id', to: 'recipes#use', as: 'use_recipe'
 end

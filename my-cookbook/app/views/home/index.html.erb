@@ -12,8 +12,9 @@
   <div class="col-md-8">
     <h1>Receitas</h1>
     <% @recipies.each do |recipe|%>
+    <hr>
       <h1><%= link_to recipe.title , recipe %></h1>
-      <li><%= recipe.recipe_type %></li>
+      <li><%= recipe.recipe_type.name %></li>
       <li><%= recipe.difficulty %></li>
       <li><%= recipe.cook_time %> minutos</li>
     <% end %>
