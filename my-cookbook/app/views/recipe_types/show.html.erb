@@ -1,0 +1,19 @@
+<h1><%= @recipe_type.name %></h1>
+
+<h1 class="title">RECEITAS DESTE TIPO</h1>
+<% if @recipe_type.recipes.empty?%>
+  <h1>Nenhuma receita encontrada para este tipo de receitas</h1>
+<% else %>
+  <% @recipe_type.recipes.each do |recipe| %>
+    <ul class="list-group">
+      <h1 class="sub-title">Titulo: <%= recipe.title %></h1>
+      <li class="list-group-item">Receita: <%= recipe.recipe_type.name %></li>
+      <li class="list-group-item">Cozinha: <%= recipe.cuisine.name %></li>
+      <li class="list-group-item">Dificuldade: <%= recipe.difficulty %></li>
+      <li class="list-group-item">Tempo de cozimento: <%= recipe.cook_time %> minutos</li>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', root_path, class: 'btn btn-default'%>
+<%= link_to 'Enviar uma receita', new_recipe_path, class: 'btn btn-default'%>

@@ -9,7 +9,13 @@
     <li><%=  link_to  cuisine.name, cuisine %></li>
     <% end %>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-4">
+    <h1>Recipe Types</h1>
+    <% @recipe_types.each do |recipe_type| %>
+      <li>  <%= link_to recipe_type.name, recipe_type , class: "btn btn-default" %></li>
+    <% end %>
+  </div>
+  <div class="col-md-4">
     <h1>Receitas</h1>
     <% @recipies.each do |recipe|%>
     <hr>
