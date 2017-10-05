@@ -1,0 +1,35 @@
+<%= flash[:error] %>
+<%= form_for @recipe , html: {class: "form-horizontal"} do  |f|  %>
+<div class="form-group">
+  <%= f.label :title, 'Título' , class: 'control-label'%>
+  <%= f.text_field :title , class: 'form-control' %>
+</div>
+<<div class="form-group">
+  <%= f.label :recipe_type_id , 'Tipo da Receita' , class: 'control-label'%>
+  <%= f.collection_select(:recipe_type_id, @recipe_types, :id, :name, class: "form-control") %>
+</div>
+<div class="form-group">
+  <%= f.label :cuisine_id , 'Cozinha' , class: 'control-label'%>
+  <%= f.collection_select(:cuisine_id, @cuisines, :id, :name, class: "form-control") %>
+</div>
+  <div class="form-group">
+  <%= f.label :difficulty, 'Dificuldade', class: 'control-label' %>
+  <%= f.text_field :difficulty  , class: 'form-control'%>
+</div>
+<div class="form-group">
+  <%= f.label :cook_time, 'Tempo de Preparo' , class: 'control-label'%>
+  <%= f.number_field :cook_time , class: 'form-control' %>
+  </div>
+<div class="form-group">
+  <%= f.label :ingredients , 'Ingredientes', class: 'control-label'%>
+  <%= f.text_field :ingredients , class: 'form-control' %>
+  </div>
+<div class="form-group">
+  <%= f.label :method, 'Como Preparar' , class: 'control-label'%>
+  <%= f.text_field :method , class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.submit submit_text , class: 'form-control' %>
+</div>
+<% end %>

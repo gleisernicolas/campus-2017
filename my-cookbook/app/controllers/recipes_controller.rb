@@ -21,10 +21,24 @@ class RecipesController < ApplicationController
       render :new
     end
 
-    def use
-      @recipe = Recipe.find(params[:id])
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @recipe_types = RecipeType.all
+    @cuisines = Cuisine.all
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update(recipe_params)
+      redirect_to recipe_url @recipe
+    else
       @cuisines = Cuisine.all
-      render :new
+      @recipe_types = RecipeType.all
+      flash[:error] = 'Você deve informar todos os dados da receita'
+      render :edit
     end
 
   end

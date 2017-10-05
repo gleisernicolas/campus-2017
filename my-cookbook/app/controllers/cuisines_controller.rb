@@ -18,7 +18,7 @@ class CuisinesController < ApplicationController
       redirect_to cuisine_url @cuisine
     else
 
-      flash[:error]= 'Você deve informar o nome da cozinha'
+      flash[:message]
       redirect_to new_cuisine_url
     end
   end
