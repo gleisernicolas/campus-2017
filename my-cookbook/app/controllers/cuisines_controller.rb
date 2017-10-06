@@ -17,8 +17,12 @@ class CuisinesController < ApplicationController
     if @cuisine.save
       redirect_to cuisine_url @cuisine
     else
+      if(@cuisine.errors.any?)
+        @cuisine.errors.each do |attribute, message|
+          flash[:error] = message
+        end
 
-      flash[:message]
+      end
       redirect_to new_cuisine_url
     end
   end

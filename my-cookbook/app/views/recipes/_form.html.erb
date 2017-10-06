@@ -4,7 +4,7 @@
   <%= f.label :title, 'Título' , class: 'control-label'%>
   <%= f.text_field :title , class: 'form-control' %>
 </div>
-<<div class="form-group">
+<div class="form-group">
   <%= f.label :recipe_type_id , 'Tipo da Receita' , class: 'control-label'%>
   <%= f.collection_select(:recipe_type_id, @recipe_types, :id, :name, class: "form-control") %>
 </div>

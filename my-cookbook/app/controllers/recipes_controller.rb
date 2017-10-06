@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
 
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -24,13 +25,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
 
     if @recipe.update(recipe_params)
       redirect_to recipe_url @recipe
@@ -40,11 +39,28 @@ class RecipesController < ApplicationController
       flash[:error] = 'Você deve informar todos os dados da receita'
       render :edit
     end
-
   end
 
+  def destroy
+    flash[:message] = 'Receita apagada com sucesso'
+    @recipe.destroy
+    redirect_to root_url
+  end
+
+  def search
+    @recipes = Recipe.where(title: params[:title])
+    if @recipes.empty?
+      flash[:error] = 'Nehuma receita encontrada'
+      redirect_to request.referer
+    else
+      render :results
+    end
+  end
 
   private
+  def set_recipe
+     @recipe = Recipe.find(params[:id])
+   end
 
   def recipe_params
     params.require(:recipe).permit(:title, :recipe_type_id, :cook_time,

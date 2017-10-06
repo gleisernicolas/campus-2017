@@ -17,27 +17,33 @@
       </div>
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <%= link_to 'Voltar ao inicio', root_path , class: 'btn btn-primary btn-block'%>
 
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <%= link_to 'Nova Cozinha', new_cuisine_path , class: 'btn btn-primary btn-block'%>
 
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <%= link_to 'Nova Receita', new_recipe_path , class: 'btn btn-primary btn-block'%>
 
           </div>
+          <div class="col-md-3">
+            <%= link_to 'Novo tipo de Receita', new_recipe_type_path, class: 'btn btn-primary btn-block'%>
 
-
+          </div>
 
         </div>
 
       </div>
-      <div class="col-md-2">
-
+      <div class="row">
+        <div class="col-md-12">
+            <%= flash[:error] %>
+            <%= render partial: '/shared/buscar_receita' %>
+        </div>
       </div>
+
 
     </div>
     <hr>
