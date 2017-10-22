@@ -1,0 +1,61 @@
+<%= form_for @property do |f|%>
+  <div class="form-group">
+    <%= f.label :title, 'Título', class: 'control-label'%>
+    <%= f.text_field :title%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location, 'Localização', class: 'control-label'%>
+    <%= f.text_field :location%>
+  </div>
+  <div class="form-group">
+    <%= f.label :property_type_id, 'Tipo do imóvel'  %>
+    <%= f.collection_select(:property_type_id, @property_types, :id, :name) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :area, 'Area', class: 'control-label'%>
+    <%= f.text_field :area%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, 'Descrição', class: 'control-label'%>
+    <%= f.text_field :description%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :daily_rate, 'Diária', class: 'control-label'%>
+    <%= f.text_field :daily_rate%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rooms, 'Quantidade de quartos', class: 'control-label'%>
+    <%= f.number_field :rooms%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :minimum_rent_days, 'Minimo de dias para locação', class: 'control-label'%>
+    <%= f.number_field :minimum_rent_days%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :maximun_rent_days, 'Máximo de dias para locação', class: 'control-label'%>
+    <%= f.number_field :maximun_rent_days%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :photo, 'Foto', class: 'control-label'%>
+    <%= f.text_field :photo%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :maximum_occupancy, 'Máximo de pessoas', class: 'control-label'%>
+    <%= f.text_field :maximum_occupancy%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :usage_rules, 'Regras de uso', class: 'control-label'%>
+    <%= f.text_field :usage_rules%>
+  </div>
+
+<% end %>
