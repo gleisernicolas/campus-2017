@@ -18,7 +18,10 @@
   </div>
   <div class="col-md-4">
     <h1>Receitas</h1>
-    <% @recipes.each do |recipe|%>
+    <% @last_six_recipes.each do |recipe|%>
+    <% if recipe.featured? %>
+      <%= image_tag 'star.png' %>
+    <% end %>
     <hr>
       <h1><%= link_to recipe.title , recipe %></h1>
       <li><%= recipe.recipe_type.name %></li>
